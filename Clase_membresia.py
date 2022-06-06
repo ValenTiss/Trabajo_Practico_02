@@ -6,7 +6,6 @@ import math
 
 class Membresia_de_cluster:
   def __init__(self):
-    self.__W=[] #matriz W
     self.__lista_centroides=[] #lista que contendrá parejas de centroides
 
   def agregar_centroides(self, pareja):
@@ -16,13 +15,15 @@ class Membresia_de_cluster:
     self.__lista_centroides.append(pareja)
   
   def calcular_w(self, centroide1, centroide2, X):
+    W=[]
     for i in X:
       norma_centroide1 = self.calcular_norma(centroide1, i )
       norma_centroide2 = self.calcular_norma(centroide2, i )
       if(norma_centroide1 < norma_centroide2):
-        self.__W.append([1,0])
+        W.append([1,0])
       else:
-        self.__W.append([0,1])
+        W.append([0,1])
+    return W
 
   def calcular_norma(self, centroide, lista):
     """
@@ -31,9 +32,6 @@ class Membresia_de_cluster:
     parametro2: par ordenado 
     """ 
     return sqrt( (centroide.getX()-lista[0])**2 + (centroide.getY()-lista[1])**2 )
-
-  def getW(self):
-    return self.__W
 
   def getLista_centroides(self):
     return self.__lista_centroides
