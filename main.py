@@ -1,13 +1,9 @@
 #Para generar primeros centroides
 import random 
+from base.py import Generador_Datos
 
 def calcular_indices_random(X):
-  return random.randint(0, len(X-1 )
-
-
-
-
-
+  return random.randint(0, len(X-1))
 
 #Se generan datos, esto es del profe
 generador_datos = Generador_Datos()
