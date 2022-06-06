@@ -20,6 +20,7 @@ from torchvision import datasets, transforms
 from torch.distributions import normal
 from torch.distributions import multivariate_normal
 import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
 
 """## Manual example"""
 
@@ -141,8 +142,6 @@ class Generador_Datos():
         return samples
 
 """## Probador del generador de datos"""
-
-from sklearn.cluster import KMeans
 
 generador_datos = Generador_Datos()
 (t, X) = generador_datos.generar_datos(numberSamplesPerClass = 200, mean1 = [12, 13], mean2 = [17, 17], stds1 = [3, 3], stds2 = [17, 17])
