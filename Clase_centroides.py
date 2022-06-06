@@ -1,3 +1,5 @@
+
+
 class Centroides:
   def __init__(self, x,y):
     self.__abscisas= x #Valor del centroide en el eje de las X
