@@ -4,12 +4,11 @@ from base import Generador_Datos
 from sklearn.cluster import KMeans
 from Clase_membresia import Membresia_de_cluster
 from Clase_centroides  import Centroides
+from Clase_graficador import Graficador
+import numpy as np
 
 def calcular_indices_random(X):
   return random.randint(0, len(X)-1 )
-
-
-
 
 
 
