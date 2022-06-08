@@ -2,8 +2,7 @@
 #Para calcular la raíz cuadrada
 from numpy.ma.core import sqrt
 import math
-
-
+from Clase_centroides import Centroides
 class Membresia_de_cluster:
   def __init__(self):
     self.__lista_centroides=[] #lista que contendrá parejas de centroides
@@ -50,7 +49,7 @@ class Membresia_de_cluster:
         sumatoria_numerador_ordenadas+=  X[i][1]*W[i][0]
         sumatoria_denominador_abscisas+= X[i][0]
         sumatoria_denominador_ordenadas+= X[i][1]
-      nuevo_centroide1= Centroides( sumatoria_numerador_abscisas / sumatoria_denominador_abscisas , sumatoria_numerador_ordenadas/ sumatoria_denominador_ordenadas )
+        nuevo_centroide1= Centroides( sumatoria_numerador_abscisas / sumatoria_denominador_abscisas , sumatoria_numerador_ordenadas/ sumatoria_denominador_ordenadas )
       return nuevo_centroide1
     else:
       raise ValueError("X y W no coinciden en tamaño")
