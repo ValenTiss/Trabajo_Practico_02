@@ -66,7 +66,6 @@ def prueba_1():
 
 def prueba_2():
     X = np.array([[50.0, 32], [42, 29], [80, 15], [70, 19]])
-    print("Datos \n", X)
     #debe ser un valor aleatorio tomando en cuenta los minimos y maximos de de cada dimension
     Centroides = np.array([[50, 20.0], [70, 30]])
     plt.scatter(X[:, 0], X[:, 1], marker = 'x')
@@ -74,8 +73,6 @@ def prueba_2():
     plt.show()
     Nuevos_centroides_1 = X[0:2, :].mean(axis = 0)
     Nuevos_centroides_2 = X[2:, :].mean(axis = 0)
-    print("nuevos centroides 1 \n ", Nuevos_centroides_1.shape)
-    print("nuevos centroides 2 \n ", Nuevos_centroides_2)
     plt.scatter(X[:, 0], X[:, 1], marker = 'x')
     plt.scatter(Nuevos_centroides_1[0], Nuevos_centroides_1[ 1], marker = 'o')
     plt.scatter(Nuevos_centroides_2[0], Nuevos_centroides_2[ 1], marker = 'o')
@@ -147,7 +144,6 @@ generador_datos = Generador_Datos()
 (t, X) = generador_datos.generar_datos(numberSamplesPerClass = 200, mean1 = [12, 13], mean2 = [17, 17], stds1 = [3, 3], stds2 = [17, 17])
 kmeans = KMeans(n_clusters=2, random_state=0)
 kmeans.fit(X)
-print("Resultado kmeans ", kmeans.labels_)
 
 """## Pruebas para la TP 2"""
 
