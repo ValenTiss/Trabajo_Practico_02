@@ -1,5 +1,4 @@
 
-
 class Centroides:
   def __init__(self, x,y):
     self.__abscisas= x #Valor del centroide en el eje de las X
@@ -11,7 +10,7 @@ class Centroides:
     Si en 
     parametro1: matriz W
     parametro2: matrix X
-    parametro3: 0 si es centroide1, 1 si es centroide 2. Representa la columna de W que está ligada al centroide
+    parametro3: 0 si es centroide 1, 1 si es centroide 2. Representa la columna de W que está ligada al centroide
     """    
     for i in range(0,len(W)):
       if W[i][numero_centroide]==1:
