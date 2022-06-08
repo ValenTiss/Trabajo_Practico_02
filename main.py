@@ -6,7 +6,7 @@ from Clase_membresia import Membresia_de_cluster
 from Clase_centroides  import Centroides
 
 def calcular_indices_random(X):
-  return random.randint(0, len(X-1))
+  return random.randint(0, len(X)-1)
 
 #Se generan datos, esto es del profe
 generador_datos = Generador_Datos()
@@ -40,4 +40,4 @@ for i in range(P):
 
 
   #Se crean los nuevos centroides 
-  membresia.agregar_centroides([ membresia.calcular_nuevo_centroide1(W,X) , membresia.calcular_nuevo_centroide1(W,X)])
+  membresia.agregar_centroides([ membresia.calcular_nuevo_centroide1(W,X) , membresia.calcular_nuevo_centroide2(W,X)])
