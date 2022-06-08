@@ -16,7 +16,7 @@ except:
 
 numberSamplesPerClass= input("Ingese la cantidad de datos que desea crear: ")
 try:
-  numberSamplesPerClass=int(numberSamplesPerClass)
+  numberSamplesPerClass=int(int(numberSamplesPerClass)/2)
 except:
   raise ValueError("La cantidad de datos debe ser un número")
 
