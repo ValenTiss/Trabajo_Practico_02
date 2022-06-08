@@ -22,67 +22,7 @@ from torch.distributions import multivariate_normal
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-"""## Manual example"""
-
-class Agrupador_K_medias:
-    def __init__(self, X, K = 2):
-        #Matriz de pesos
-        self.W = np.zeros(X.shape[0], K)
-        #Se guardan los datos de manera global en X
-        self.X = X
-        #se definen los centroides como atributo
-        self.Centroides = np.zeros(K, X.shape[1])
-    
-    
-    
-
-    def calcular_centroide_mas_cercano(self, Centroides, X, num_observacion):
-        distancia_euclidiana_min = 9999
-        num_centroide_mas_cercano = -1
-        for i in range(0, Centroides.shape[0]):   
-            vector_diferencia = Centroides[i, :] - X[0, :]    
-            distancia_euclidiana = np.linalg.norm(vector_diferencia, 2)
-            if(distancia_euclidiana < distancia_euclidiana_min):
-                distancia_euclidiana_min = distancia_euclidiana
-                num_centroide_mas_cercano = i
-        return i
-    
-    def actualizar_W(self):
-        #actualizar la matriz de pesos binarios W, de acuerdo a la pertenencia a los datos
-        print("Por implementar")
-        
-    def actualizar_centroides(self):
-        print("Por implementar")
-
-def prueba_1():
-    X = np.array([[50.0, 32], [42, 29], [80, 15], [70, 19]])
-    print("Datos \n", X)
-    #debe ser un valor aleatorio tomando en cuenta los minimos y maximos de de cada dimension
-    Centroides = np.array([[50, 20.0], [70, 30]])
-    print("Dimensiones en Centroides: ", Centroides.shape)
-    print("Centroides iniciales \n", Centroides)
-    print("centroide mas cercano de observacion 0 es el ", calcular_centroide_mas_cercano(Centroides, X, 0))
-    print("centroide mas cercano de observacion 1 es el ", calcular_centroide_mas_cercano(Centroides, X, 1))
-
-def prueba_2():
-    X = np.array([[50.0, 32], [42, 29], [80, 15], [70, 19]])
-    #debe ser un valor aleatorio tomando en cuenta los minimos y maximos de de cada dimension
-    Centroides = np.array([[50, 20.0], [70, 30]])
-    plt.scatter(X[:, 0], X[:, 1], marker = 'x')
-    plt.scatter(Centroides[:, 0], Centroides[:, 1], marker = 'o')
-    plt.show()
-    Nuevos_centroides_1 = X[0:2, :].mean(axis = 0)
-    Nuevos_centroides_2 = X[2:, :].mean(axis = 0)
-    plt.scatter(X[:, 0], X[:, 1], marker = 'x')
-    plt.scatter(Nuevos_centroides_1[0], Nuevos_centroides_1[ 1], marker = 'o')
-    plt.scatter(Nuevos_centroides_2[0], Nuevos_centroides_2[ 1], marker = 'o')
-    plt.show()
-  
-
-prueba_2()
-
 """## Creacion de los datos artificiales
-
 Los datos son creados con una distribucion Gaussiana
 """
 
@@ -115,9 +55,9 @@ class Generador_Datos():
        
         samplesAll = torch.cat((samplesClass1, samplesClass2), 0)
         #graficacion de los datos
-        plt.scatter(samplesClass1[:, 0], samplesClass1[:, 1])
-        plt.scatter(samplesClass2[:, 0], samplesClass2[:, 1], marker = 'x')
-        plt.show()
+        #plt.scatter(samplesClass1[:, 0], samplesClass1[:, 1])
+        #plt.scatter(samplesClass2[:, 0], samplesClass2[:, 1], marker = 'x')
+        #plt.show()
        
         #Create targets
         targetsClass1 = torch.ones(numberSamplesPerClass, 1)
@@ -144,9 +84,3 @@ generador_datos = Generador_Datos()
 (t, X) = generador_datos.generar_datos(numberSamplesPerClass = 200, mean1 = [12, 13], mean2 = [17, 17], stds1 = [3, 3], stds2 = [17, 17])
 kmeans = KMeans(n_clusters=2, random_state=0)
 kmeans.fit(X)
-
-"""## Pruebas para la TP 2"""
-
-#generador_datos.generar_datos(numberSamplesPerClass = 200, mean1 = [12, 13], mean2 = [17, 17], stds1 = [3, 3], stds2 = [17, 17])
-#generador_datos.generar_datos(numberSamplesPerClass = 200, mean1 = [2, 1], mean2 = [17, 17], stds1 = [3, 3], stds2 = [7, 7])
-#generador_datos.generar_datos(numberSamplesPerClass = 100, mean1 = [12, 13], mean2 = [21, 22], stds1 = [3, 3], stds2 = [17, 17])
