@@ -3,10 +3,21 @@
 from numpy.ma.core import sqrt
 import math
 from Clase_centroides import Centroides
+
 class Membresia_de_cluster:
   def __init__(self):
     self.__lista_centroides=[] #lista que contendrá parejas de centroides
 
+  def calcular_T(self, W):
+    T=[]
+    for i in W:
+      if i[0] == 1:
+        T+=[0]
+      else:
+        T+=[1]
+    return T  
+  
+  
   def agregar_centroides(self, pareja):
     """
     Agrega un nuevo par de centroides a lista_centroides
@@ -41,15 +52,13 @@ class Membresia_de_cluster:
     """
     sumatoria_numerador_abscisas= 0
     sumatoria_numerador_ordenadas=0
-    sumatoria_denominador_abscisas= 0
-    sumatoria_denominador_ordenadas= 0
+    sumatoria_denominador= 0
     if(len(X)==len(W)):
       for i in range(0,len(X)):
         sumatoria_numerador_abscisas+= X[i][0]*W[i][0]
         sumatoria_numerador_ordenadas+=  X[i][1]*W[i][0]
-        sumatoria_denominador_abscisas+= X[i][0]
-        sumatoria_denominador_ordenadas+= X[i][1]
-        nuevo_centroide1= Centroides( sumatoria_numerador_abscisas / sumatoria_denominador_abscisas , sumatoria_numerador_ordenadas/ sumatoria_denominador_ordenadas )
+        sumatoria_denominador+= W[i][0]
+      nuevo_centroide1= Centroides( sumatoria_numerador_abscisas / sumatoria_denominador , sumatoria_numerador_ordenadas/ sumatoria_denominador )
       return nuevo_centroide1
     else:
       raise ValueError("X y W no coinciden en tamaño")
@@ -60,15 +69,20 @@ class Membresia_de_cluster:
     """
     sumatoria_numerador_abscisas= 0
     sumatoria_numerador_ordenadas=0
-    sumatoria_denominador_abscisas= 0
-    sumatoria_denominador_ordenadas= 0
+    sumatoria_denominador= 0
     if(len(X)==len(W)):
       for i in range(0,len(X)):
         sumatoria_numerador_abscisas+= X[i][0]*W[i][1]
         sumatoria_numerador_ordenadas+=  X[i][1]*W[i][1]
-        sumatoria_denominador_abscisas+= X[i][0]
-        sumatoria_denominador_ordenadas+= X[i][1]
-      nuevo_centroide2= Centroides( sumatoria_numerador_abscisas / sumatoria_denominador_abscisas , sumatoria_numerador_ordenadas/ sumatoria_denominador_ordenadas )
+        sumatoria_denominador+= W[i][1]
+      nuevo_centroide2= Centroides( sumatoria_numerador_abscisas / sumatoria_denominador , sumatoria_numerador_ordenadas/ sumatoria_denominador )
       return nuevo_centroide2
     else:
       raise ValueError("X y W no coinciden en tamaño")
+
+  def calcular_tasa_error(self, correcto, T):
+    acumulado=0
+    for i in range(0,len(correcto)):
+      if correcto[i] - T[i] != 0:
+        acumulado+= 1
+    return  ( acumulado/len(correcto) )
