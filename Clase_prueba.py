@@ -4,6 +4,8 @@ from base import Generador_Datos
 from sklearn.cluster import KMeans
 from Clase_membresia import Membresia_de_cluster
 from Clase_centroides  import Centroides
+from Clase_graficador import Graficador
+import numpy as np
 
 class Pruebas: 
   def calcular_indices_random(self, X):
@@ -79,8 +81,8 @@ class Pruebas:
     informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", : " + str(stds2)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
-  def prueba1(self,cant_datos):
-    numberSamplesPerClass = cant_datos 
+  def prueba1(self):
+    numberSamplesPerClass = 200 
     mean1 = [12, 13] 
     mean2 = [17, 17] 
     stds1 = [3, 3] 
@@ -88,24 +90,24 @@ class Pruebas:
     informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", : " + str(stds2)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
-  def prueba2(self,cant_datos):
-    numberSamplesPerClass = cant_datos
+  def prueba2(self):
+    numberSamplesPerClass = 200
     mean1 = [2, 1]
     mean2 = [17, 17]
     stds1 = [3, 3]
     stds2 = [7, 7]
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
-  def prueba3(self,cant_datos):
-    numberSamplesPerClass = cant_datos
+  def prueba3(self):
+    numberSamplesPerClass = 200
     mean1 = [12, 13]
     mean2 = [21, 22]
     stds1 = [3, 3]
     stds2 = [17, 17]
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
-  def prueba4(self,cant_datos):
-    numberSamplesPerClass = cant_datos
+  def prueba4(self):
+    numberSamplesPerClass = 200
     mean1 = [2, 3]
     mean2 = [6, 6]
     stds1 = [3, 3]
