@@ -78,7 +78,8 @@ class Pruebas:
 
 
   def prueba(self,numberSamplesPerClass, mean1, mean2, stds1, stds2):
-    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", : " + str(stds2)
+    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", stds2: " + str(stds2)
+    print(informacion)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
   def prueba1(self,cant_datos):
@@ -87,7 +88,8 @@ class Pruebas:
     mean2 = [17, 17] 
     stds1 = [3, 3] 
     stds2 = [17, 17]
-    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", : " + str(stds2)
+    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", stds2: " + str(stds2)
+    print(informacion)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
   def prueba2(self,cant_datos):
@@ -96,6 +98,8 @@ class Pruebas:
     mean2 = [17, 17]
     stds1 = [3, 3]
     stds2 = [7, 7]
+    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", stds2: " + str(stds2)
+    print(informacion)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
   def prueba3(self,cant_datos):
@@ -104,6 +108,8 @@ class Pruebas:
     mean2 = [21, 22]
     stds1 = [3, 3]
     stds2 = [17, 17]
+    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", stds2: " + str(stds2)
+    print(informacion)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
   def prueba4(self,cant_datos):
@@ -112,6 +118,8 @@ class Pruebas:
     mean2 = [6, 6]
     stds1 = [3, 3]
     stds2 = [4, 3]
+    informacion = "mean1: " + str(mean1) + ", mean2: "+str(mean2) + ", stds1: "+str(stds1) + ", stds2: " + str(stds2)
+    print(informacion)
     self.probar( numberSamplesPerClass , mean1 , mean2 , stds1 , stds2 )
 
 
