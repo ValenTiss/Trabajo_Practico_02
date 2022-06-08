@@ -12,10 +12,10 @@ class Centroides:
     parametro1: matriz W
     parametro2: matrix X
     parametro3: 0 si es centroide1, 1 si es centroide 2. Representa la columna de W que está ligada al centroide
-    """
+    """    
     for i in range(0,len(W)):
       if W[i][numero_centroide]==1:
-        self.__matriz_de_pertenecientes.append(X[i])
+        self.__matriz_de_pertenecientes+=[X[i]] 
   
   def getX(self):
     return self.__abscisas
