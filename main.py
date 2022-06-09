@@ -8,7 +8,7 @@ import numpy as np
 from Clase_prueba import Pruebas
 
 probador=Pruebas()
-numero_de_prueba= input("Si desea una prueba rápida de las pruebas puestas en el documento presione 1,2,3 o 4. \n En caso contrario, si desea digitar manualmente los datos presione cualquier otro número")
+numero_de_prueba= input("Si desea una prueba rápida de las pruebas puestas en el documento presione 1,2,3 o 4. \n En caso contrario, si desea digitar manualmente los datos presione cualquier otro número: ")
 try:
   numero_de_prueba=int(numero_de_prueba)
 except:
